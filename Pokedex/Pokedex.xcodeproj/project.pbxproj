@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		05350BC02322AE9D0094EB97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BBF2322AE9D0094EB97 /* AppDelegate.swift */; };
-		05350BC22322AE9D0094EB97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BC12322AE9D0094EB97 /* ViewController.swift */; };
+		05350BC22322AE9D0094EB97 /* PokemonSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BC12322AE9D0094EB97 /* PokemonSearchViewController.swift */; };
 		05350BC52322AE9D0094EB97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05350BC32322AE9D0094EB97 /* Main.storyboard */; };
 		05350BC72322AE9E0094EB97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05350BC62322AE9E0094EB97 /* Assets.xcassets */; };
 		05350BCA2322AE9E0094EB97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05350BC82322AE9E0094EB97 /* LaunchScreen.storyboard */; };
+		05350BD72322B7190094EB97 /* PokedexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BD62322B7190094EB97 /* PokedexTableViewController.swift */; };
+		05350BD92322B7400094EB97 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BD82322B7400094EB97 /* PokemonDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05350BBC2322AE9D0094EB97 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05350BBF2322AE9D0094EB97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05350BC12322AE9D0094EB97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05350BC12322AE9D0094EB97 /* PokemonSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSearchViewController.swift; sourceTree = "<group>"; };
 		05350BC42322AE9D0094EB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05350BC62322AE9E0094EB97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05350BC92322AE9E0094EB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05350BCB2322AE9E0094EB97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05350BD62322B7190094EB97 /* PokedexTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexTableViewController.swift; sourceTree = "<group>"; };
+		05350BD82322B7400094EB97 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,9 @@
 		05350BD32322AF200094EB97 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				05350BC12322AE9D0094EB97 /* ViewController.swift */,
+				05350BC12322AE9D0094EB97 /* PokemonSearchViewController.swift */,
+				05350BD62322B7190094EB97 /* PokedexTableViewController.swift */,
+				05350BD82322B7400094EB97 /* PokemonDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -176,7 +182,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05350BC22322AE9D0094EB97 /* ViewController.swift in Sources */,
+				05350BD72322B7190094EB97 /* PokedexTableViewController.swift in Sources */,
+				05350BD92322B7400094EB97 /* PokemonDetailViewController.swift in Sources */,
+				05350BC22322AE9D0094EB97 /* PokemonSearchViewController.swift in Sources */,
 				05350BC02322AE9D0094EB97 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
