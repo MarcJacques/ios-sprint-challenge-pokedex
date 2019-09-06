@@ -14,6 +14,7 @@
 		05350BCA2322AE9E0094EB97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05350BC82322AE9E0094EB97 /* LaunchScreen.storyboard */; };
 		05350BD72322B7190094EB97 /* PokedexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BD62322B7190094EB97 /* PokedexTableViewController.swift */; };
 		05350BD92322B7400094EB97 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BD82322B7400094EB97 /* PokemonDetailViewController.swift */; };
+		05350BDB2322BE1F0094EB97 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BDA2322BE1F0094EB97 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		05350BCB2322AE9E0094EB97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05350BD62322B7190094EB97 /* PokedexTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexTableViewController.swift; sourceTree = "<group>"; };
 		05350BD82322B7400094EB97 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
+		05350BDA2322BE1F0094EB97 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		05350BD42322AF400094EB97 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				05350BDA2322BE1F0094EB97 /* Pokemon.swift */,
 			);
 			name = Model;
 			path = Storyboard;
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05350BDB2322BE1F0094EB97 /* Pokemon.swift in Sources */,
 				05350BD72322B7190094EB97 /* PokedexTableViewController.swift in Sources */,
 				05350BD92322B7400094EB97 /* PokemonDetailViewController.swift in Sources */,
 				05350BC22322AE9D0094EB97 /* PokemonSearchViewController.swift in Sources */,
