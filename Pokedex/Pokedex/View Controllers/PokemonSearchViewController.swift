@@ -20,13 +20,17 @@ class PokemonSearchViewController: UIViewController {
     // Mark Properties:
     
     var apiController: APIController!
-    var pokemon: Pokemon?
+    var pokemon: Pokemon? {
+        didSet {
+            updateViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchBar.delegate = self
-        hideViews(true)
+        labelHider(true)
         saveButton.isHidden = true
         
         if let pokemon = pokemon {
@@ -37,46 +41,58 @@ class PokemonSearchViewController: UIViewController {
     }
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let pokemon = pokemon else { return }
-        apiController.add(pokemon: pokemon)
+        apiController.pokemon.append(pokemon)
         saveButton.isEnabled = false
+        
     }
     
     //  Mark: - Helper Functions
     
-    private func hideViews(_ verdict Bool) {
-        pokemonNameLabel.isHidden = verdict
-        imageView.isHidden = verdict
-        idLabel.isHidden = verdict
-        typeLabel.isHidden = verdict
-        abilitiesLabel.isHidden = verdict
+    private func labelHider(_ hide: Bool) {
+        pokemonNameLabel.isHidden = hide
+        imageView.isHidden = hide
+        idLabel.isHidden = hide
+        typeLabel.isHidden = hide
+        abilitiesLabel.isHidden = hide
     }
     
     private func updateViews() {
-        guard let pokemon = pokemon else { return }
+        guard let pokemon = pokemon, isViewLoaded else { return }
         title = pokemon.name.capitalized
         idLabel.text = "\(pokemon.id)"
         typeLabel.text = "\(pokemon.types)"
         abilitiesLabel.text = "\(pokemon.abilities)"
+        guard let imageData = try? Data(contentsOf: pokemon.picture.frontDefault) else { fatalError() }
+        imageView.image = UIImage(data: imageData)
+        
     }
-    
     private func performSearch(for searchTerm: String) {
-        apiController.getPokemon(by: searchTerm) { (result) in
-            guard let result = try? result.get() else { return }
+        apiController.getPokemon(by: searchTerm) { (result),_  in
+            guard let result = try? result. else { return }
             DispatchQueue.main.async {
                 self.pokemon = result
+                self.labelHider(false)
                 self.updateViews()
                 self.saveButton.isEnabled = true
                 self.saveButton.isHidden = false
             }
-            
         }
     }
 }
-
 extension PokemonSearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text else { return }
-        performSearch(for: searchTerm)
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        searchBar.resignFirstResponder()
+        apiController.getPokemon(by: searchBar.text, completion: { fatalError() (result) in
+            DispatchQueue.main.async {
+                do {
+                    let pokemon = try result.get()
+                    self?.pokemon = pokemon
+                } catch {
+                    let alertVC = UIAlertController(error: error)
+                    self?.present(alertVC, animated: true)
+                }
+            }
+        })
     }
 }
-

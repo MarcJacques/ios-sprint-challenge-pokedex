@@ -16,12 +16,27 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var abilitiesLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    var pokemon: Pokemon? {
+        didSet {
+            updateViews()
+        }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+            updateViews()
+    }
+    
+    func updateViews() {
+        guard isViewLoaded,
+        let pokemon = pokemon else { return }
+        title = pokemon.name.capitalized
+        idLabel.text = "\(pokemon.id)"
+        typeLabel.text = "\(pokemon.types)"
+        guard let imageData = try? Data(contentsOf: pokemon.picture.frontDefault) else { fatalError() }
+        imageView.image = UIImage(data: imageData)
+    }
 
     /*
     // MARK: - Navigation
