@@ -7,26 +7,21 @@
 //
 
 import Foundation
-import SpriteKit
-
-struct PokeDex: Decodable {
-    let pokedex: Pokemon
-}
 
 struct Pokemon: Decodable {
-    let name: String
-    let types: [Type]
-    let id: Int
-    let abilities: [Ability]
-    let picture: Sprite
+    var name: String
+    var types: [Type]
+    var id: Int
+    var abilities: [Ability]
+    var picture: Sprite
 }
 
 struct Type: Decodable {
-    let type: Species
+    var type: Species
 }
 
 struct Ability: Decodable {
-    let ability : Species
+    var ability : Species
 }
 
 struct Sprite: Decodable {
@@ -38,5 +33,5 @@ struct Sprite: Decodable {
 }
 
 struct Species: Decodable {
-    let name: String
+    var name: String
 }
