@@ -10,11 +10,17 @@ import Foundation
 
 class APIController {
         
-    var myPokemon: [Pokemon] = []
+    var pokeBall: [Pokemon] = []
     
     let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     
-    func getPokemon(by searchTerm: String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void) {
+    func add(pokemon: Pokemon) {
+        if !pokeBall.contains(pokemon) {
+            pokeBall.append(pokemon)
+        }
+    }
+    
+    func gottaCatchThemAll(by searchTerm: String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void) {
 
         let pokemonURL = baseURL.appendingPathComponent("\(searchTerm.lowercased())")
         let request = URLRequest(url: pokemonURL)

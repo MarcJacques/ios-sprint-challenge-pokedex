@@ -13,9 +13,12 @@ class PokedexTableViewController: UITableViewController {
     let apiController = APIController()
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
 
-        
-        
     }
 
     // MARK: - Table view data source
@@ -23,19 +26,20 @@ class PokedexTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return apiController.myPokemon.count
+        return apiController.pokeBall.count
     }
 
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath)
         
-        let pokemon = apiController.myPokemon[indexPath.row]
+        let pokemon = apiController.pokeBall[indexPath.row]
         
         cell.textLabel?.text = pokemon.name.capitalized
         guard let imageData = try? Data(contentsOf: pokemon.sprites.frontDefault) else {
             fatalError() }
         cell.imageView?.image = UIImage(data: imageData)
+        
         return cell
         }
 
@@ -84,7 +88,7 @@ class PokedexTableViewController: UITableViewController {
         if segue.identifier == "DetailViewSegue" {
             guard let pokemonDetailVC = segue.destination as? PokemonDetailViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let pokemon = apiController.myPokemon[indexPath.row]
+            let pokemon = apiController.pokeBall[indexPath.row]
             pokemonDetailVC.pokemon = pokemon
         } else if segue.identifier == "PokemonSearchSegue" {
             if let pokemonSearchVC = segue.destination as? PokemonSearchViewController {

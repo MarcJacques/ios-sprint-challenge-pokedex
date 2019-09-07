@@ -31,6 +31,7 @@ struct Ability: Equatable, Codable {
 struct Sprite: Equatable, Codable {
     var frontDefault: URL
     
+    
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"
     }
