@@ -34,7 +34,7 @@ class PokemonDetailViewController: UIViewController {
         title = pokemon.name.capitalized
         idLabel.text = "\(pokemon.id)"
         typeLabel.text = "\(pokemon.types)"
-        guard let imageData = try? Data(contentsOf: pokemon.picture.frontDefault) else { fatalError() }
+        guard let imageData = try? Data(contentsOf: pokemon.sprites.frontDefault) else { fatalError() }
         imageView.image = UIImage(data: imageData)
     }
 

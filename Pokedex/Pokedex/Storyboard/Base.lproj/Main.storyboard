@@ -252,9 +252,12 @@
                     <navigationItem key="navigationItem" title="Pokemon Search" id="kyf-Eg-A1f"/>
                     <connections>
                         <outlet property="abilitiesLabel" destination="Q5E-WT-Ksb" id="JZp-po-yVI"/>
+                        <outlet property="allLabels" destination="LBQ-QH-lk5" id="w3i-rZ-iyv"/>
                         <outlet property="idLabel" destination="MCD-3e-lEr" id="JYf-V2-hVz"/>
                         <outlet property="imageView" destination="fLg-sW-fFh" id="p68-yj-kMC"/>
                         <outlet property="pokemonNameLabel" destination="aau-js-RcT" id="bzO-dn-l5o"/>
+                        <outlet property="saveButton" destination="1I4-Gv-q2d" id="HxR-lT-7mF"/>
+                        <outlet property="searchBar" destination="tli-pc-ddY" id="BeG-23-Mmt"/>
                         <outlet property="typeLabel" destination="I43-Ug-8Mi" id="2jw-Oz-1lg"/>
                     </connections>
                 </viewController>

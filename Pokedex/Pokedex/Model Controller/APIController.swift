@@ -10,36 +10,44 @@ import Foundation
 
 class APIController {
         
-    var pokemon: [Pokemon] = []
+    var myPokemon: [Pokemon] = []
     
     let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
-    typealias CompletionHandler = (Error?) -> Void
     
-    func getPokemon(by searchTerm: String, completion: @escaping CompletionHandler = { _ in }) {
-        
+    func getPokemon(by searchTerm: String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void) {
+
         let pokemonURL = baseURL.appendingPathComponent("\(searchTerm.lowercased())")
         let request = URLRequest(url: pokemonURL)
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let error = error {
-                NSLog("Error getting users: \(error)")
+       
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    print (response.statusCode)
+                }
             }
             
+            if let error = error {
+                NSLog(error.localizedDescription)
+                completion(.failure(.otherError(error)))
+                return
+            }
+
             guard let data = data else {
                 NSLog("No data returned from data task.")
-                completion(nil) //if we don't get data get out
+                completion(.failure(.noData)) //if we don't get data get out
                 return
             }
             do {
+                //print (String(describing: data))
                 let pokemonFound = try JSONDecoder().decode(Pokemon.self, from: data) // userResults.self is collecting all of the data from the API
-                print(pokemonFound)
+                //print(pokemonFound)
+                completion(.success(pokemonFound))
                 //make the empty array = to the new array that you just collected from the api
             } catch {
-                NSLog("Error decoding users: \(error)")
-                completion(error)
+                NSLog("Error decoding pokemon.")
+                completion(.failure(.notDecoding))
             }
-            completion(nil)
             }.resume()
-        
     }
 }

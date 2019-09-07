@@ -8,23 +8,27 @@
 
 import Foundation
 
-struct Pokemon: Decodable {
+struct Pokemon: Equatable, Codable {
     var name: String
-    var types: [Type]
     var id: Int
-    var abilities: [Ability]
-    var picture: Sprite
+    var abilities: [Abilities]
+    var types: [Types]
+    var sprites : Sprite
 }
 
-struct Type: Decodable {
-    var type: Species
+struct Types: Equatable, Codable {
+    var type: Type
 }
 
-struct Ability: Decodable {
-    var ability : Species
+struct Abilities: Equatable, Codable {
+    var ability : Ability
 }
 
-struct Sprite: Decodable {
+struct Ability: Equatable, Codable {
+    var name: String
+}
+
+struct Sprite: Equatable, Codable {
     var frontDefault: URL
     
     enum CodingKeys: String, CodingKey {
@@ -32,6 +36,6 @@ struct Sprite: Decodable {
     }
 }
 
-struct Species: Decodable {
+struct Type: Equatable, Codable {
     var name: String
 }

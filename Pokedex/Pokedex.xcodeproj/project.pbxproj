@@ -16,6 +16,7 @@
 		05350BD92322B7400094EB97 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BD82322B7400094EB97 /* PokemonDetailViewController.swift */; };
 		05350BDB2322BE1F0094EB97 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BDA2322BE1F0094EB97 /* Pokemon.swift */; };
 		05350BDD2322CA460094EB97 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BDC2322CA460094EB97 /* APIController.swift */; };
+		05350BDF2323E5BA0094EB97 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05350BDE2323E5BA0094EB97 /* Enum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		05350BD82322B7400094EB97 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
 		05350BDA2322BE1F0094EB97 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		05350BDC2322CA460094EB97 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		05350BDE2323E5BA0094EB97 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				05350BBF2322AE9D0094EB97 /* AppDelegate.swift */,
 				05350BC62322AE9E0094EB97 /* Assets.xcassets */,
 				05350BCB2322AE9E0094EB97 /* Info.plist */,
+				05350BDE2323E5BA0094EB97 /* Enum.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				05350BD72322B7190094EB97 /* PokedexTableViewController.swift in Sources */,
 				05350BDD2322CA460094EB97 /* APIController.swift in Sources */,
 				05350BD92322B7400094EB97 /* PokemonDetailViewController.swift in Sources */,
+				05350BDF2323E5BA0094EB97 /* Enum.swift in Sources */,
 				05350BC22322AE9D0094EB97 /* PokemonSearchViewController.swift in Sources */,
 				05350BC02322AE9D0094EB97 /* AppDelegate.swift in Sources */,
 			);

@@ -17,6 +17,9 @@ class PokemonSearchViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var abilitiesLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    
+    @IBOutlet weak var allLabels: UIStackView!
+    
     // Mark Properties:
     
     var apiController: APIController!
@@ -31,7 +34,7 @@ class PokemonSearchViewController: UIViewController {
         
         searchBar.delegate = self
         labelHider(true)
-        saveButton.isHidden = true
+        //saveButton.isHidden = true
         
         if let pokemon = pokemon {
             title = pokemon.name
@@ -41,7 +44,7 @@ class PokemonSearchViewController: UIViewController {
     }
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let pokemon = pokemon else { return }
-        apiController.pokemon.append(pokemon)
+        apiController.myPokemon.append(pokemon)
         saveButton.isEnabled = false
         
     }
@@ -49,11 +52,12 @@ class PokemonSearchViewController: UIViewController {
     //  Mark: - Helper Functions
     
     private func labelHider(_ hide: Bool) {
-        pokemonNameLabel.isHidden = hide
-        imageView.isHidden = hide
-        idLabel.isHidden = hide
-        typeLabel.isHidden = hide
-        abilitiesLabel.isHidden = hide
+//        pokemonNameLabel.isHidden = hide
+//        imageView.isHidden = hide
+//        idLabel.isHidden = hide
+//        typeLabel.isHidden = hide
+//        abilitiesLabel.isHidden = hide
+        allLabels.isHidden = hide
     }
     
     private func updateViews() {
@@ -62,13 +66,13 @@ class PokemonSearchViewController: UIViewController {
         idLabel.text = "\(pokemon.id)"
         typeLabel.text = "\(pokemon.types)"
         abilitiesLabel.text = "\(pokemon.abilities)"
-        guard let imageData = try? Data(contentsOf: pokemon.picture.frontDefault) else { fatalError() }
+        guard let imageData = try? Data(contentsOf: pokemon.sprites.frontDefault) else { fatalError() }
         imageView.image = UIImage(data: imageData)
         
     }
     private func performSearch(for searchTerm: String) {
-        apiController.getPokemon(by: searchTerm) { (result),_  in
-            guard let result = try? result. else { return }
+        apiController.getPokemon(by: searchTerm) { (result) in
+            guard let result = try? result.get() else { return }
             DispatchQueue.main.async {
                 self.pokemon = result
                 self.labelHider(false)
@@ -81,18 +85,15 @@ class PokemonSearchViewController: UIViewController {
 }
 extension PokemonSearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
-        searchBar.resignFirstResponder()
-        apiController.getPokemon(by: searchBar.text, completion: { fatalError() (result) in
-            DispatchQueue.main.async {
-                do {
-                    let pokemon = try result.get()
-                    self?.pokemon = pokemon
-                } catch {
-                    let alertVC = UIAlertController(error: error)
-                    self?.present(alertVC, animated: true)
-                }
-            }
-        })
+        guard let searchTerm = searchBar.text else { return }
+        performSearch(for: searchTerm)
     }
 }
+
+extension UISearchBar {
+    var optionalText: String? {
+        let trimmedText = self.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        return (trimmedText ?? "").isEmpty ? nil : trimmedText
+    }
+}
+
