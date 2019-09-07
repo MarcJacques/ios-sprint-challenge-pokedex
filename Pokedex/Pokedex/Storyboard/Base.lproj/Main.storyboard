@@ -156,12 +156,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search by name or ID:" translatesAutoresizingMaskIntoConstraints="NO" id="tli-pc-ddY">
+                            <searchBar contentMode="redraw" placeholder="Search by Pokemon Name or ID:" translatesAutoresizingMaskIntoConstraints="NO" id="tli-pc-ddY">
                                 <rect key="frame" x="0.0" y="140" width="414" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I4-Gv-q2d">
-                                <rect key="frame" x="146" y="717" width="83" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I4-Gv-q2d">
+                                <rect key="frame" x="145.5" y="716" width="83" height="30"/>
                                 <state key="normal" title="Save Button"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="ySr-jJ-Jpd" eventType="touchUpInside" id="OUR-AI-ipn"/>
