@@ -19,6 +19,9 @@ class APIController {
             pokeBall.append(pokemon)
         }
     }
+    func remove(_ ID: Int) {
+        pokeBall.remove(at: ID)
+    }
     
     func gottaCatchThemAll(by searchTerm: String, completion: @escaping (Result<Pokemon, NetworkError>) -> Void) {
 

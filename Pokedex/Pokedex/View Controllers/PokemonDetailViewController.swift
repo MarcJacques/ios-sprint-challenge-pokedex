@@ -31,10 +31,11 @@ class PokemonDetailViewController: UIViewController {
     func updateViews() {
         guard isViewLoaded,
         let pokemon = pokemon else { return }
-        title = pokemon.name.capitalized
+        title = pokemon.name.capitalized + " " + "ID: \(pokemon.id)"
         idLabel.text = "\(pokemon.id)"
-        typeLabel.text = "\(pokemon.types)"
-        guard let imageData = try? Data(contentsOf: pokemon.sprites.frontDefault) else { fatalError() }
+        typeLabel.text = "\(pokemon.types.map{$0.type.name}.joined(separator: ", ") )"
+        abilitiesLabel.text = "\(pokemon.abilities.map{$0.ability.name}.joined(separator: ", "))"
+        guard let imageData = try? Data(contentsOf: pokemon.sprites.frontDefault) else { return }
         imageView.image = UIImage(data: imageData)
     }
 
